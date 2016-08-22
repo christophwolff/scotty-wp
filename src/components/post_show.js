@@ -18,15 +18,14 @@ class PostShow extends Component {
         const { fetchPost } = this.props;
         const { slug } = this.props.params;
 
-        let that = this;
         axios.get(`${POSTS_URL}/?filter[name]=/${slug}`)
-            .then(function (response) {
+            .then((response) => {
 
             //Set the post State
             fetchPost(slug);
 
             //Set the Header Infos
-            that.props.setCurrentHeader({
+            this.props.setCurrentHeader({
                 title: response.data[0].title.rendered,
                 subtitle: dateFormat(response.data[0].date, "fullDate"),
                 image: response.data[0].featured_image_thumbnail_url
