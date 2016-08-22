@@ -9,14 +9,15 @@ import promise from "redux-promise";
 
 import App from './components/app';
 import reducers from './reducers';
-import './scss/scotty';
+
+require('./scss/scotty');
 
 import routes from './routes';
 
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
 
-///devToolsExtension
+//devToolsExtension
 const initialState = {};
 
 let store = createStore(reducers, initialState, compose(
